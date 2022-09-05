@@ -99,7 +99,7 @@ PaymentForm.addEventListener('submit', (evento) => {
         errors['lastname'] = 'Last name debe tener un nombre válido (sin números o caracteres especiales)';
         lastname.classList.add('is-invalid');
         lastname.style.background = '#f8d7da';
-    } 
+    }
     else {
         lastname.classList.remove('is-invalid');
         delete errors['lastname'];
@@ -115,7 +115,7 @@ PaymentForm.addEventListener('submit', (evento) => {
         errors['city'] = 'City debe tener un nombre válido (sin números o caracteres especiales)';
         city.classList.add('is-invalid');
         city.style.background = '#f8d7da';
-    } 
+    }
     else {
         city.classList.remove('is-invalid');
         delete errors['city'];
@@ -126,7 +126,7 @@ PaymentForm.addEventListener('submit', (evento) => {
         errors['state'] = 'State no puede estar vacio';
         state.classList.add('is-invalid');
         state.style.background = '#f8d7da';
-    } 
+    }
     else {
         state.classList.remove('is-invalid');
         delete errors['state'];
@@ -142,7 +142,7 @@ PaymentForm.addEventListener('submit', (evento) => {
         errors['postalcode'] = 'Postal code debe contener 5 dígitos';
         postalcode.classList.add('is-invalid');
         postalcode.style.background = '#f8d7da';
-    } 
+    }
     else {
         postalcode.classList.remove('is-invalid');
         delete errors['postalcode'];
@@ -153,12 +153,12 @@ PaymentForm.addEventListener('submit', (evento) => {
         errors['message'] = 'Message no puede estar vacio';
         message.classList.add('is-invalid');
         message.style.background = '#f8d7da';
-    } 
+    }
     else if (!rgxValidMessage.test(message.value)) {
         errors['message'] = 'Debe escribir un mensaje válido';
         message.classList.add('is-invalid');
         message.style.background = '#f8d7da';
-    } 
+    }
     else {
         message.classList.remove('is-invalid');
         delete errors['message'];
@@ -169,19 +169,21 @@ PaymentForm.addEventListener('submit', (evento) => {
     if (errors['card'] || errors['cvc'] || errors['amount'] || errors['firstname'] || errors['lastname'] || errors['city'] || errors['state'] || errors['postalcode'] || errors['message']) {
         console.log(errors);
         const alertPlaceholder = document.getElementById('general')
-        const wrapper = document.createElement('div')
+
         if (card.value == '' || cvc.value == '' || amount.value == '' || firstname.value == '' || lastname.value == '' || city.value == '' || state.value == 'Pick a State' || postalcode.value == '' || message.value == '') {
+            const wrapper = document.createElement('div')
             wrapper.innerHTML = [
                 `<div class="alert alert-danger" role="alert">`,
                 `Some fields are missing`,
                 '</div>'
             ].join('')
-            alertPlaceholder.append(wrapper)
+            if (alertPlaceholder.childElementCount == 0) {
+                alertPlaceholder.append(wrapper)
+            }
         }
         else {
-            alertPlaceholder.remove(wrapper)
-        }
-
+                alertPlaceholder.remove(wrapper)
+            }
 
         if (errors['card']) cardFeedback.innerHTML = errors['card'];
         if (errors['cvc']) cvcFeedback.innerHTML = errors['cvc'];
