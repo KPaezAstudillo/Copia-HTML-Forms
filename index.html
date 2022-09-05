@@ -9,142 +9,142 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Hello, world!</title>
 </head>
 
 <body>
-    <div class="card my-2 h-100 w-75 mx-auto">
-        <div class="card-header">
-            <h3>Payment Form Example</h3>
-        </div>
-        <div class="card-body">
-            <div class="alert alert-danger" role="alert">
-                Some fields are missing
-              </div>
-            <form>
+    <form id="PaymentForm">
+        <div class="card my-2 h-100 w-75 mx-auto">
+            <div class="card-header">
+                <h3>Payment Form Example</h3>
+            </div>
+            <div class="card-body">
+                <!-- <div class="alert alert-danger invalid-feedback" role="alert" id="general" name="general">
+                    Some fields are missing
+                </div> -->
+                <div id="general"></div>
                 <div class="form-row mt-3">
                     <div class="form-group col-md-4">
-                        <label for="inputCard">Card #</label>
-                        <input type="text" class="form-control" placeholder="XXXXXXXXXXX">
+                        <label for="card">Card #</label>
+                        <input type="text" class="form-control" name="card" placeholder="XXXXXXXXXXX">
+                        <small class="invalid-feedback" id="cardFeedback"></small>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputCVC">CVC #</label>
-                        <input type="text" class="form-control" placeholder="0000">
+                        <label for="cvc">CVC #</label>
+                        <input type="text" class="form-control" name="cvc" placeholder="0000">
+                        <small class="invalid-feedback" id="cvcFeedback"></small>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputAmount">Amount</label>
-                        <div class="d-flex">
-                            <p class="pr-1">$</p>
-                            <input type="text" class="form-control" placeholder="Amount">
-                        </div>
+                        <label for="amount">Amount</label>
+
+                        <input type="text" class="form-control" name="amount" placeholder="Amount">
+                        <small class="invalid-feedback" id="amountFeedback"></small>
+
+
                     </div>
                 </div>
                 <div class="form-row mt-3">
                     <div class="form-group col-md-6 pr-3">
-                        <label for="inputFirstName">First Name</label>
-                        <input type="text" class="form-control">
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" name="firstname">
+                        <small class="invalid-feedback" id="firstnameFeedback"></small>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputLastName">Last Name</label>
-                        <input type="text" class="form-control">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" class="form-control" name="lastname">
+                        <small class="invalid-feedback" id="lastnameFeedback"></small>
                     </div>
 
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="inputCity" name="city">
+                        <small class="invalid-feedback" id="cityFeedback"></small>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
+                        <label for="state">State</label>
+                        <select id="inputState" class="form-control" name="state">
                             <option selected>Pick a State</option>
-                            <option>...</option>
+                            <option>California</option>
+                            <option>New York</option>
+                            <option>Washington</option>
                         </select>
+                        <small class="invalid-feedback" id="stateFeedback"></small>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputZip">Postal Code</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <label for="postalcode">Postal Code</label>
+                        <input type="text" class="form-control" id="inputZip" name="postalcode">
+                        <small class="invalid-feedback" id="postalcodeFeedback"></small>
                     </div>
                 </div>
                 <div class="form-row mt-3">
                     <div class="form-group col-md-6 pr-3">
                         <label for="inputMethod">We accept:</label>
-
-                        <!-- <div class="form-check">
-                            <div class="form-check-input">
-                                <input type="radio">
-                                <i class="fa-brands fa-cc-mastercard"></i>
-                                <input type="radio">
-                                <i class="fa-brands fa-cc-visa"></i>
-                                <input type="radio">
-                                <i class="fa-brands fa-cc-diners-club"></i>
-                                <input type="radio">
-                                <i class="fa-brands fa-cc-paypal"></i>
-                            </div>
-                        </div> -->
                         <div class="col-5 d-flex bg-light ">
                             <div class="form-check p-2 px-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
+                                <input class="form-check-input" type="radio" name="accept" id="flexRadio1" checked>
+                                <label class="form-check-label" for="accept">
                                     <i class="fa-brands fa-cc-mastercard"></i>
                                 </label>
                             </div>
                             <div class="form-check p-2 px-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
+                                <input class="form-check-input" type="radio" name="accept" id="flexRadio2">
+                                <label class="form-check-label" for="accept">
                                     <i class="fa-brands fa-cc-visa"></i>
                                 </label>
                             </div>
                             <div class="form-check p-2 px-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
+                                <input class="form-check-input" type="radio" name="accept" id="flexRadio3">
+                                <label class="form-check-label" for="accept">
                                     <i class="fa-brands fa-cc-diners-club"></i>
                                 </label>
                             </div>
                             <div class="form-check p-2 px-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
+                                <input class="form-check-input" type="radio" name="accept" id="flexRadio4">
+                                <label class="form-check-label" for="accept">
                                     <i class="fa-brands fa-cc-paypal"></i>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="exampleFormControlTextarea1">Message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            name="message"></textarea>
                         <p style="color:grey">Add any notes here</p>
+                        <small class="invalid-feedback" id="messageFeedback"></small>
                     </div>
 
                 </div>
-            </form>
-        </div>
-        <div class="card-footer">
-            <div class="col-12 d-flex">
-                <button type="submit" class="btn bg-secondary ml-auto mx-2 text-white">Cancel</button>
-                <button type="submit" class="btn btn-primary mx-2">Send</button>
+
+
+            </div>
+            <div class="card-footer">
+                <div class=" row">
+                    <div class="col-1 ms-auto d-flex">
+                        <button type="button" class="btn bg-secondary  mx-2 text-white">Cancel</button>
+                    </div>
+                    <div class="col-1 d-flex">
+                        <button type="submit" class="btn btn-primary mx-2" id="btn">Send</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
